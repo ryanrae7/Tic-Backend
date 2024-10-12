@@ -45,13 +45,17 @@ char inputValidationPlayer(char &c){
     Conditions for winning:
     1) 
 */
-bool checkWinner(char board[3][3])
+bool checkWinner(char board[3][3], char player)
 {
-    for(int i = 0; i < 3; i++){
-        for(int k = 0; k < 3; k++)
-        {
-            
-        }
+    if(board[0][0] == player && board[0][1] == player && board[0][2] == player ||
+    board[1][0] == player && board[1][1] == player && board[1][2] == player ||
+    board[2][0] == player && board[2][1] == player && board[2][2] == player ||  // horizontal
+    board[0][0] == player && board[1][0] == player && board[2][0] == player ||
+    board[0][1] == player && board[1][1] == player && board[2][1] == player ||
+    board[0][2] == player && board[1][2] == player && board[2][2] == player){
+        return true;
+    }else{
+        return false;
     }
 }
 
@@ -78,18 +82,26 @@ int main()
     setBoard(board);
     
     // Maximum number of turns possible for a 3x3 tic tac toe
-    for(int i = 0; i < 9; i++){
-        // Player one and player two
-        for(int k = 0; k < 2; k++){
-            int row, col; // Temporary column and row variables
-            std::cout<<"\nChoose coordinates: " << std::endl;
-            std::cout<<"Row for player "<< k+1 <<": ", std::cin>>row;
-            std::cout<<"Column for player "<< k+1 <<": ", std::cin>>col;
-            board[row-1][col-1] = players[k];
-            setBoard(board);
+    while(1){
+        for(int i = 0; i < 9; i++){
+            // Player one and player two
+            for(int k = 0; k < 2; k++){
+                int row, col; // Temporary column and row variables
+                std::cout<<"\nChoose coordinates: " << std::endl;
+                std::cout<<"Row for player "<< k+1 <<": ", std::cin>>row;
+                std::cout<<"Column for player "<< k+1 <<": ", std::cin>>col;
+                board[row-1][col-1] = players[k];
+                setBoard(board);
 
-            
+                if(checkWinner(board, players[k]) == true)
+                {
+                    std::cout<<"Player "<<players[k] << " has won!";
+                    break;
+                }
+            }
         }
+
+        std::cout<< "The game has ended in a tie!";
     }
     
 
