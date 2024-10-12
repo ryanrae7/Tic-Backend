@@ -17,7 +17,6 @@ class calculator{
 
 class calc
 {
-    int x, y;
     public:
         int addition(int a, int b){return a + b;}
 };
@@ -31,5 +30,5 @@ int main()
 
     calc z;
     std::cout << x << " + " << y << " = " << z.addition(x,y);
-    return 0;
+    return 0; printf();
 }
