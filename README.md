@@ -8,7 +8,7 @@ Tic Tac Toe is a classic two-player game where players take turns marking a spac
 - **Reset Game Option**: Players can easily reset the game to start a new match.
 - **Win Detection**: The program detects and announces when a player wins or if the game ends in a draw.
 - **Responsive GUI**: The interface adjusts to different screen sizes, providing a seamless experience.
-- **Attempting To Make GUI Interface from Scratch as project**
+**Attempting To Make GUI Interface from Scratch as a motivational project**
 
 
 
